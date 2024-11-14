@@ -18,7 +18,13 @@ Worktime is a time measuring tool designed to help users track their work activi
 To install Worktime, you need to have Python 3.6 or later installed on your system. You can install the package using the following command:
 
 ```bash
-pip install .
+git clone github.com/o2-basta/worktime.git && cd worktime && python setup.py install
+```
+
+or just use pip ( currently not working )
+
+```bash
+pip install git+https://github.com/o2-basta/worktime.git
 ```
 
 Make sure you have the necessary permissions to install packages.
