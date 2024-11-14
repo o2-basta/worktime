@@ -18,5 +18,11 @@ setup(
         "License :: CC BY 4.0",  # License type (in this case a CC license)
         "Operating System :: OS Independent",
     ],
+    scripts=["worktime/worktime.py"],
+    entry_points={
+        "console_scripts": [
+            "worktime=worktime:main",
+        ],
+    },
     python_requires=">=3.6",
 )
