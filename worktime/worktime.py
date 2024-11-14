@@ -5,7 +5,6 @@ import os
 
 WORKTIME_FILENAME = f"{os.environ['HOME']}/.worktime"
 WORKLIST_FILE = "todo"
-WIKIFILE = ".j"
 ROUTINE_LIST = ["Meditation", "Reading", "Lunch", "Food"]
 SUBTASK_TAB = "    "
 
@@ -23,12 +22,9 @@ def still_working():
 
 
 def get_worklist():
-    if not os.path.exists(WIKIFILE) and not os.path.exists(WORKLIST_FILE):
+    if not os.path.exists(WORKLIST_FILE):
         return []
-    workfile = WORKLIST_FILE
-    if os.path.exists(WIKIFILE):
-        workfile = WIKIFILE
-    with open(workfile, "r") as f:
+    with open(WORKLIST_FILE, "r") as f:
         items = []
         for l in f.readlines():
             if l.startswith("[ ] "):
@@ -124,6 +120,7 @@ def get_idle_time():
         last_start = get_workblocks()[-1]["end"]
         return format_time(float(get_utcstr()) - float(last_start))
     return None
+
 
 def get_idle_time_min():
     if not os.path.exists(WORKTIME_FILENAME):
